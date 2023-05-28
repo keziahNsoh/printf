@@ -1,0 +1,23 @@
+#include "main.h"
+#include <stdio.h>
+#include <stdarg.h>
+
+/**
+ * print_char - Prints a char
+ * @list: List of arguments
+ * @specifier: Precision specification
+ * Return: Number of chars printed
+ */
+
+int print_string(va_list args)
+
+{
+char *str = va_arg(args, char *);
+int count = 0;
+while (*str != '0')
+{
+count += putchar(*str)
+str++;
+}
+return count;
+}

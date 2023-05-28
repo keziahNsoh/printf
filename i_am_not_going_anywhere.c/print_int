@@ -1,0 +1,13 @@
+#include "main.h"
+#include <stdio.h>
+
+/**
+ * print_char - Prints a char
+ * @list: List of arguments
+ * Return: Number of chars printed
+ */
+
+void print_int(int num)
+{
+    printf("%d", num);
+}

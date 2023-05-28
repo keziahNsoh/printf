@@ -1,63 +1,45 @@
-#include <stdio.h>
+#ifndef MAIN_H
+#define MAIN_H
 #include <stdarg.h>
-#include "main.h"
+#include <stdio.h>
+#include <unistd.h>
+#define UNUSED(x) (void)(x)
+#define BUFF_SIZE 1024
 
-void print_buffer(char buffer[], int *buff_ind);
+/* FLAGS */
+#define F_MINUS 1
+#define F_PLUS 2
+#define F_ZERO 4
+#define F_HASH 8
+#define F_SPACE 16
+
+/* SIZES */
+#define S_LONG 2
+#define S_SHORT 1
 
 /**
- * _printf - Printf function
- * @format: format.
- * Return: Printed chars.
+ * struct fmt - Struct op
+ *
+ * @fmt: The format.
+ * @fn: The function associated.
  */
-
-int _printf(const char *format, ...)
+struct fmt
 {
-        va_list args;
+	char fmt;
+	int (*fn)(va_list, char[], int, int, int, int);
+};
 
-        va_start(args, format);
-        int count = vfprintf(stdout, format, args);
 
-        while (*format != '0')
-        {
-                if (*format == '%')
-                {
-                        format++;
-                        switch (*format)
-                        {
-                                case 'c':
-                                        count += printf("%c", va_arg(args, int));
-                                        break;
-                                case 's':
-                                        count += printf("%s", va_arg(args, char *));
-                                        break;
-                                case 'd':
-                                        count += printf("%d", va_arg(args, int));
-                                        break;
-                                case 'f':
-                                        count += printf("%f", va_arg(args, double));
-                                        break;
-                                default:
-                                        printf("Invalid format specifier: %c\n", *format);
-                                        break;
-                        }
-                }
-                else
-                {
-                        putchar(*format);
-                        count++;
-                }
-                format++;
-        }
-        va_end(args);
-        return (count);
-}
+/**
+ * typedef struct fmt fmt_t - Struct op
+ *
+ * @fmt: The format.
+ * @fm_t: The function associated.
+ */
+typedef struct fmt fmt_t;
 
-int main(void);
-int num = 123;
-char *str = "Hello, world!";
-_printf("%d\n", num);
-_printf("%s\n", str);
-_printf("%.2f\n", 3.14159);
-return (0);
+int _printf(const char *format, ...);
+int handle_print(const char *fmt, int *i,
+va_list list, char buffer[], int flags, int width, int precision, int size);
 
-}
+#endif

@@ -7,8 +7,8 @@
  * @types: List a of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
- * @width: get diameter
- * @precision: Fidelity specification
+ * @diameter: diameter
+ * @fidelity: fidelity specification
  * @size: Size specifier
  * Return: Number of chars printed
  */
@@ -25,8 +25,8 @@ int print_char(va_list types, char buffer[],
  * @types: List a of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
- * @width: get diameter.
- * @precision: Fidelity specification
+ * @diameter: get diameter.
+ * @fidelity: fidelity specification
  * @size: Size specifier
  * Return: Number of chars printed
  */
@@ -54,7 +54,7 @@ int print_string(va_list types, char buffer[],
 	if (fidelity >= 0 && fidelity < length)
 		length = fidelity;
 
-	if (diameter > length)
+	if (fidelity > length)
 	{
 		if (flags & F_MINUS)
 		{
@@ -80,8 +80,8 @@ int print_string(va_list types, char buffer[],
  * @types: Lista of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
- * @diameter: get diameter.
- * @fidelity: Fidelity specification
+ * @diameter: get diameter
+ * @fidelity: fidelity specification
  * @size: Size specifier
  * Return: Number of chars printed
  */
@@ -100,11 +100,11 @@ int print_percent(va_list types, char buffer[],
 /************************* PRINT INT *************************/
 /**
  * print_int - Print int
- * @types: Lista of arguments
+ * @types: List of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
  * @diameter: get diameter.
- * @fidelity: Fidelity specification
+ * @fidelity: fidelity specification
  * @size: Size specifier
  * Return: Number of chars printed
  */
@@ -147,8 +147,8 @@ int print_int(va_list types, char buffer[],
  * @types: Lista of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
- * @diameter: get diameter.
- * @fidelity: Fidelity specification
+ * @diameter: get diameter
+ * @fidelity: fidelity specification
  * @size: Size specifier
  * Return: Numbers of char printed.
  */

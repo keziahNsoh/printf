@@ -9,7 +9,7 @@
  * @diameter: get diameter
  * @fidelity: fidelity specification
  * @size: Size specifier
- * Return: Number of chars printed.
+ * Return: write_unsgnd(0, i, buffer, flags, diameter, fidelity, size.
  */
 int print_unsigned(va_list types, char buffer[],
 	int flags, int diameter, int fidelity, int size)
@@ -44,7 +44,7 @@ int print_unsigned(va_list types, char buffer[],
  * @diamiter: get diameter
  * @fidelity: fidelity specification
  * @size: Size specifier
- * Return: Number of chars printed
+ * Return: write_unsgnd(0, i, buffer, flags, diameter, fidelity, size
  */
 int print_octal(va_list types, char buffer[],
 	int flags, int diameter, int fidelity, int size)
@@ -104,7 +104,7 @@ int print_hexadecimal(va_list types, char buffer[],
  * @diameter: get diameter
  * @fidelity: fidelity specification
  * @size: Size specifier
- * Return: Number of chars printed
+ * Return: print_hexa(types, "0123456789ABCDEF", buffer,flags, 'X', diameter, fidelity, size
  */
 int print_hexa_upper(va_list types, char buffer[],
 	int flags, int diameter, int fidelity, int size)

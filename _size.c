@@ -2,10 +2,10 @@
 
 /**
  * get_size - Calculates the size to cast the argument
- * @format: Format strings to print the arguments
+ * @format: Formatted string in which to print the arguments
  * @i: List of arguments to be printed.
  *
- * Return: Fidelity.
+ * Return: Precision.
  */
 int get_size(const char *format, int *i)
 {
@@ -16,9 +16,11 @@ int get_size(const char *format, int *i)
 		size = S_LONG;
 	else if (format[curr_i] == 'h')
 		size = S_SHORT;
+
 	if (size == 0)
 		*i = curr_i - 1;
 	else
 		*i = curr_i;
+
 	return (size);
 }
